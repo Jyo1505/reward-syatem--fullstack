@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../public/css/main.css">
+  <link rel="stylesheet" href="../public/css/profile.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <h2>🎁 Reward System</h2>
+  <div>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="ask.html">Ask</a>
+    <a href="questions.html">Questions</a>
+    <a href="transfer.html">Transfer</a>
+    <a href="login.html" onclick="logout()">Logout</a>
+  </div>
+</div>
+
+<!-- DASHBOARD SECTION -->
+<div class="container">
+  <h1>Dashboard</h1>
+
+  <div class="dashboard-grid">
+    <div class="stat">
+      <h1 id="points">0</h1>
+      <p>Total Points</p>
+    </div>
+
+    <div class="card">
+      <h3>Quick Actions</h3>
+      <p>Post answers, earn rewards and transfer points.</p>
+      <br>
+      
+    </div>
+
+    <div class="card">
+      <h3>Rewards Info</h3>
+      <ul>
+        <li>✔ Answer → +5 points</li>
+        <li>✔ 5 Upvotes → +5 bonus</li>
+        <li>✔ Delete answer → −5 points</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE SECTION -->
+<div class="container">
+  <h1>My Profile</h1>
+
+  <div class="card profile-card">
+    <div>
+      <p><b>Name:</b> <span id="name"></span></p>
+      <p><b>Email:</b> <span id="email"></span></p>
+      <p><b>User ID:</b> <span id="uid"></span></p>
+    </div>
+
+    <div class="stat">
+      <h1 id="points2">0</h1>
+      <p>Wallet Balance</p>
+    </div>
+  </div>
+</div>
+
+<script src="../public/js/dashboard.js"></script>
+</body>
+</html>

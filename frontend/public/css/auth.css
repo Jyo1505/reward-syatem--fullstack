@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card */
+.auth-wrapper {
+  width: 420px;
+  max-width: 92%;
+  background: rgba(255,255,255,0.95);
+  border-radius: 22px;
+  padding: 40px 35px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+}
+
+/* Title */
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Fields */
+.field {
+  margin-bottom: 14px;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.field input:focus {
+  border-color: #764ba2;
+  box-shadow: 0 0 0 2px rgba(118,75,162,0.15);
+}
+
+/* Button */
+.auth-form button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.auth-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.auth-form p {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.auth-form a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+#msg {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+#strength {
+  font-size: 12px;
+  margin-top: -6px;
+  display: block;
+}
