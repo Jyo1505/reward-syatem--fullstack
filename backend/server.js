@@ -16,20 +16,20 @@ const allowedOrigins = [
   "https://rewardsystemm.netlify.app"
 ];
 
+// ✅ Modern CORS (Node 18+ / 20+ / 22 compatible)
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true); // allow Postman / curl
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
-    return callback(new Error("Not allowed by CORS"));
+    return callback(new Error("CORS not allowed"));
   },
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type"],
   credentials: false
 }));
 
-app.options("*", cors());
 app.use(express.json());
 
 // routes
@@ -39,6 +39,7 @@ app.use("/api/transfers", transferRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/questions", questionRoutes);
 
+// health check
 app.get("/api/health", (req, res) => {
   res.json({ status: "OK" });
 });
