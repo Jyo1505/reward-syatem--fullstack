@@ -10,30 +10,39 @@ const questionRoutes = require("./routes/question.routes");
 
 const app = express();
 
-// ✅ CORS (Vercel + Local)
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "https://rewardsystemm.netlify.app"
+];
+
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    process.env.FRONTEND_URL
-  ],
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error("Not allowed by CORS"));
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+  credentials: false
 }));
 
+app.options("*", cors());
 app.use(express.json());
 
-// API routes
+// routes
 app.use("/api/auth", authRoutes);
 app.use("/api/answers", answerRoutes);
 app.use("/api/transfers", transferRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/questions", questionRoutes);
 
-// Health check (IMPORTANT for Render)
 app.get("/api/health", (req, res) => {
   res.json({ status: "OK" });
 });
 
-// ✅ Dynamic port (Render requirement)
 const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
