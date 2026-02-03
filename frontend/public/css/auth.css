@@ -1,3 +1,4 @@
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -5,99 +6,18 @@
   font-family: "Poppins", system-ui, sans-serif;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea, #764ba2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-/* Card */
-.auth-wrapper {
-  width: 420px;
-  max-width: 92%;
-  background: rgba(255,255,255,0.95);
-  border-radius: 22px;
-  padding: 40px 35px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
-}
-
-/* Title */
-.auth-form h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
-  font-weight: 600;
-}
-
-/* Fields */
-.field {
-  margin-bottom: 14px;
-}
-
-.field input {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  outline: none;
-  font-size: 14px;
-  transition: 0.3s;
-}
-
-.field input:focus {
-  border-color: #764ba2;
-  box-shadow: 0 0 0 2px rgba(118,75,162,0.15);
-}
-
-/* Button */
-.auth-form button {
-  width: 100%;
-  margin-top: 10px;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(135deg,#667eea,#764ba2);
-  color: white;
-  font-size: 15px;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.auth-form button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-}
-
-.auth-form p {
-  text-align: center;
-  margin-top: 12px;
-  font-size: 14px;
-}
-
-.auth-form a {
-  color: #667eea;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-#msg {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-#strength {
-  font-size: 12px;
-  margin-top: -6px;
-  display: block;
-}
-
-
-/* Center & scale auth card */
-/* Center container */
+/* ================= WRAPPER ================= */
+/* Full page center container */
 .auth-wrapper {
   min-height: 100vh;
   display: flex;
@@ -106,44 +26,53 @@ body {
   padding: 24px;
 }
 
-/* Auth card */
+/* ================= AUTH CARD ================= */
 .auth-form {
   width: 100%;
-  max-width: 600px;   /* 👈 THIS makes it wider */
-  padding: 36px 42px;
-  border-radius: 18px;
-  background: #fff;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.18);
+  max-width: 640px;           /* 👈 WIDE on desktop */
+  background: rgba(255,255,255,0.96);
+  padding: 42px 46px;
+  border-radius: 22px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
 }
 
-/* Heading */
+/* ================= TITLE ================= */
 .auth-form h2 {
+  text-align: center;
+  margin-bottom: 24px;
   font-size: 30px;
-  margin-bottom: 22px;
+  color: #333;
+  font-weight: 600;
 }
 
-/* Inputs */
-.auth-form input {
-  padding: 14px 16px;
-  font-size: 16px;
+/* ================= FIELDS ================= */
+.field {
+  margin-bottom: 16px;
 }
 
-/* Button */
-.auth-form button {
+.field input {
   width: 100%;
-  padding: 14px;
-  font-size: 16px;
+  padding: 14px 16px;
   border-radius: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.25s ease;
 }
 
+.field input:focus {
+  border-color: #764ba2;
+  box-shadow: 0 0 0 3px rgba(118,75,162,0.15);
+}
 
+/* ================= PASSWORD TOGGLE ================= */
 .password-field {
   position: relative;
 }
 
 .password-field .toggle {
   position: absolute;
-  right: 12px;
+  right: 14px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
@@ -155,8 +84,67 @@ body {
   opacity: 1;
 }
 
+/* ================= BUTTON ================= */
+.auth-form button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
 
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+.auth-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+/* ================= TEXT / LINKS ================= */
+.auth-form p {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 14px;
+  color: #444;
+}
+
+.auth-form a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ================= MESSAGES ================= */
+#msg {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+#strength {
+  font-size: 12px;
+  margin-top: 6px;
+  display: block;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+
+  .auth-form {
+    max-width: 100%;
+    padding: 30px 22px;
+  }
+
+  .auth-form h2 {
+    font-size: 24px;
+  }
+
+  .field input {
+    font-size: 15px;
+    padding: 13px 14px;
+  }
 }

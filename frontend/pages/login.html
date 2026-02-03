@@ -17,9 +17,11 @@
       <input type="email" id="email" placeholder="Email">
     </div>
 
-    <div class="field">
-      <input type="password" id="password" placeholder="Password">
-    </div>
+    <div class="field password-field">
+  <input type="password" id="password" placeholder="Password">
+  <span class="toggle" onclick="togglePassword('password', this)">👁️</span>
+</div>
+
 
     <button onclick="login()">Login</button>
     <p id="msg"></p>
