@@ -1,6 +1,7 @@
-const BASE_URL = "http://localhost:9000/api";
+// ================== CONFIG ==================
+// const BASE_URL = "https://reward-syatem-fullstack.onrender.com/api";
 
-// REGISTER
+// ================== REGISTER ==================
 function isValidEmail(email) {
   const regex = /^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
   if (!regex.test(email)) return false;
@@ -22,7 +23,6 @@ function isValidEmail(email) {
 
   return allowedDomains.includes(domain);
 }
-
 
 function isStrongPassword(password) {
   // min 8 chars, 1 uppercase, 1 lowercase, 1 number
@@ -54,8 +54,8 @@ async function register() {
     return;
   }
 
-  // send to backend
-  const res = await fetch("http://localhost:9000/api/auth/register", {
+  // ✅ Send to Render backend
+  const res = await fetch(`${BASE_URL}/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, email, password })
@@ -76,6 +76,8 @@ document.getElementById("password")?.addEventListener("input", () => {
   const p = document.getElementById("password").value;
   const s = document.getElementById("strength");
 
+  if (!s) return;
+
   if (isStrongPassword(p)) {
     s.innerText = "Strong password ✅";
     s.style.color = "green";
@@ -85,10 +87,11 @@ document.getElementById("password")?.addEventListener("input", () => {
   }
 });
 
-// LOGIN
+// ================== LOGIN ==================
 async function login() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
+  const msg = document.getElementById("msg");
 
   const res = await fetch(`${BASE_URL}/auth/login`, {
     method: "POST",
@@ -97,7 +100,7 @@ async function login() {
   });
 
   const data = await res.json();
-  document.getElementById("msg").innerText = data.msg;
+  msg.innerText = data.msg;
 
   if (res.ok) {
     localStorage.setItem("user", JSON.stringify(data.user));
