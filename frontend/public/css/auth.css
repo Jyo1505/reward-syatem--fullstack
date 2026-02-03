@@ -97,32 +97,43 @@ body {
 
 
 /* Center & scale auth card */
+/* Center container */
 .auth-wrapper {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 24px;
 }
 
+/* Auth card */
 .auth-form {
   width: 100%;
-  max-width: 460px; /* ⬅ bigger on desktop */
+  max-width: 600px;   /* 👈 THIS makes it wider */
+  padding: 36px 42px;
+  border-radius: 18px;
   background: #fff;
-  padding: 32px;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.18);
 }
 
+/* Heading */
 .auth-form h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: 30px;
+  margin-bottom: 22px;
 }
 
+/* Inputs */
 .auth-form input {
+  padding: 14px 16px;
+  font-size: 16px;
+}
+
+/* Button */
+.auth-form button {
   width: 100%;
   padding: 14px;
   font-size: 16px;
+  border-radius: 12px;
 }
 
 
