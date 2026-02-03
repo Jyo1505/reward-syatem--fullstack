@@ -94,3 +94,58 @@ body {
   margin-top: -6px;
   display: block;
 }
+
+
+/* Center & scale auth card */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 460px; /* ⬅ bigger on desktop */
+  background: #fff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.auth-form h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+}
+
+
+.password-field {
+  position: relative;
+}
+
+.password-field .toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.6;
+}
+
+.password-field .toggle:hover {
+  opacity: 1;
+}
+
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}

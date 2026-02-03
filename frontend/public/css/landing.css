@@ -143,3 +143,54 @@ footer {
     text-align: center;
   }
 }
+
+
+
+
+/* ===== MOBILE FIXES ===== */
+@media (max-width: 768px) {
+
+  nav {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .hero-buttons a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .features {
+    padding: 30px 16px;
+  }
+
+  .feature {
+    margin-bottom: 16px;
+  }
+}
+
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
