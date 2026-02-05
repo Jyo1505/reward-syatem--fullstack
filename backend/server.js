@@ -13,7 +13,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
-  "https://rewardsystemm.netlify.app"
+  "http://reward-syatem-fullstack.vercel.app"
 ];
 
 // ✅ Modern CORS (Node 18+ / 20+ / 22 compatible)
