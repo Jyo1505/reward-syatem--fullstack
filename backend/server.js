@@ -9,21 +9,28 @@ const userRoutes = require("./routes/user.routes");
 const questionRoutes = require("./routes/question.routes");
 
 const app = express();
-
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
-  "http://reward-syatem-fullstack.vercel.app"
+  "https://reward-syatem-fullstack.vercel.app",
+  "https://www.reward-syatem-fullstack.vercel.app"
 ];
 
-// ✅ Modern CORS (Node 18+ / 20+ / 22 compatible)
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin) return callback(null, true); // allow Postman / curl
+
+    // allow Postman, curl, mobile refresh, SSR
+    if (!origin) {
+      return callback(null, true);
+    }
+
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
-    return callback(new Error("CORS not allowed"));
+
+    // ❗ silently block, DO NOT throw error
+    console.warn("Blocked CORS origin:", origin);
+    return callback(null, false);
   },
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type"],
