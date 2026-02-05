@@ -1,4 +1,16 @@
 // ================== REGISTER HELPERS ==================
+console.log("auth.js loaded");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("registerBtn");
+  if (btn) {
+    btn.addEventListener("click", register);
+    console.log("Register button bound");
+  } else {
+    console.log("Register button NOT found");
+  }
+});
+
 function isValidEmail(email) {
   const regex = /^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
   if (!regex.test(email)) return false;
@@ -24,6 +36,7 @@ function isStrongPassword(password) {
 
 // ================== REGISTER ==================
 async function register() {
+   alert("REGISTER FUNCTION CALLED");
   const nameEl = document.getElementById("name");
   const emailEl = document.getElementById("email");
   const passwordEl = document.getElementById("password");
