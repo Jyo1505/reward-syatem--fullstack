@@ -36,7 +36,7 @@ function isStrongPassword(password) {
 
 // ================== REGISTER ==================
 async function register() {
-   alert("REGISTER FUNCTION CALLED");
+  //  alert("REGISTER FUNCTION CALLED");
   const nameEl = document.getElementById("name");
   const emailEl = document.getElementById("email");
   const passwordEl = document.getElementById("password");
